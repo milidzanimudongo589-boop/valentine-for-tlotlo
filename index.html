@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Will You Be My Valentine?</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #ff9a9e, #ff7eb3);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    background: white;
+    color: #ff4f7b;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    background: #ffe3ec;
+  }
+
+  .hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 3s infinite;
+  }
+  .heart:before,
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+  .heart:before { top: -10px; }
+  .heart:after { left: 10px; }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-400px) rotate(45deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>💖 Will You Be My Valentine? 💖</h1>
+  <p>Dear Tlotlo,</p>
+  <p>You are my peace, my love, and my future.</p>
+  <p>So I have one question for you...</p>
+
+  <button class="btn" onclick="playProposal()">Yes, I will be your Valentine</button>
+
+  <div id="surprise" class="hidden">
+    <p>💖 You just made me the happiest man alive 💖</p>
+    <p>Let’s build our future together, forever.</p>
+  </div>
+
+  <div id="musicPlayer" class="hidden">
+    <iframe width="0" height="0"
+      src="https://www.youtube.com/embed/SOJpE1KMUbo?autoplay=1&controls=0"
+      title="Dave & Tems - Raindance"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<script>
+  function playProposal() {
+    document.getElementById("surprise").classList.remove("hidden");
+    document.getElementById("musicPlayer").classList.remove("hidden");
+  }
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+  }, 400);
+</script>
+
+</body>
+</html>
